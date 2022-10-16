@@ -1,0 +1,43 @@
+﻿@page
+@model CRUD.Pages.clients.IndexModel
+@{
+}
+
+
+
+<br>
+<h2>List of Clients</h2>
+<a class='btn btn-primary btn-sm' href='/clients/Create'>New Client</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>  @*Header Cells*@
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listClients)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+                <td>
+                    <a class=" btn btn-primary btn-sm" href="/clients/Edit?id=@item.id">Edit</a>
+                    @*<a></a>attribute links from one page to another*@
+                    <a class=" btn btn-primary btn-sm" href="/clients/Delete?id=@item.id">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
